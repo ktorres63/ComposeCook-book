@@ -1,10 +1,13 @@
 package com.tutorial.composecookbook
 
+import android.widget.Space
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -36,13 +39,21 @@ fun RecipeCard(recipe: Recipe) {
                     fontWeight = FontWeight(700)
                 )
                 for (ingredient in recipe.ingredients) {
-                    Text("• $ingredient", style = MaterialTheme.typography.bodyMedium)
+                    Text(
+                        text = "• $ingredient",
+                        style = MaterialTheme.typography.bodyMedium
+                    )
                 }
             }
-            Text(
-                text = recipe.description,
-                style = MaterialTheme.typography.bodySmall
-            )
+            Column {
+                Spacer(modifier = Modifier.height(30.dp))
+                Text(
+                    text = recipe.description,
+                    style = MaterialTheme.typography.bodySmall,
+                    modifier = Modifier.padding(16.dp)
+                )
+            }
+
         }
     }
 }

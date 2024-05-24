@@ -1,5 +1,6 @@
 package com.tutorial.composecookbook
 
+//This val is not necessary with viewModel
 val defaultRecipes = listOf(
     Recipe(
         imageResource = R.drawable.ramen,

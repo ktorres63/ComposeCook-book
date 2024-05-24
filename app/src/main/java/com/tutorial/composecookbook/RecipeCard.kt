@@ -42,17 +42,18 @@ fun RecipeCard(recipe: Recipe, modifier: Modifier) {
                     .height(144.dp)
 
             )
-            Row {
+            Row(modifier = Modifier.padding(16.dp)){
                 Column {
                     Text(
-                        recipe.title,
+                        text = recipe.title,
                         style = MaterialTheme.typography.headlineLarge,
-                        fontWeight = FontWeight(700)
+                        fontWeight = FontWeight(700),
                     )
                     for (ingredient in recipe.ingredients) {
                         Text(
                             text = "• $ingredient",
-                            style = MaterialTheme.typography.bodyMedium
+                            style = MaterialTheme.typography.bodyMedium,
+
                         )
                     }
                 }
@@ -73,5 +74,12 @@ fun RecipeCard(recipe: Recipe, modifier: Modifier) {
 @Composable
 @Preview(showBackground = true)
 fun RecipeCardPreview() {
-    RecipeCard(defaultRecipes[0], Modifier.padding(16.dp))
+    val viewModel = RecipeListViewModel()
+    val previewRecipe = Recipe(
+        imageResource = R.drawable.ramen,
+        title = "Ramen",
+        ingredients = listOf("Noodles", "Eggs", "Mushrooms", "Carrots", "Soy sauce"),
+        description = "Japan’s famous noodles-and-broth dish. It’s meant to be slurped LOUDLY."
+    )
+    RecipeCard(recipe = previewRecipe, modifier = Modifier.padding(16.dp) )
 }

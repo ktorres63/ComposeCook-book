@@ -23,8 +23,9 @@ import androidx.compose.ui.unit.dp
 
 
 @Composable
-fun RecipeCard(recipe: Recipe) {
+fun RecipeCard(recipe: Recipe, modifier: Modifier) {
     Surface(
+        modifier = modifier,
         color = MaterialTheme.colorScheme.surface,
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.secondary),
         shape = RoundedCornerShape(8.dp),
@@ -72,5 +73,5 @@ fun RecipeCard(recipe: Recipe) {
 @Composable
 @Preview(showBackground = true)
 fun RecipeCardPreview() {
-    RecipeCard(defaultRecipes[1])
+    RecipeCard(defaultRecipes[0], Modifier.padding(16.dp))
 }

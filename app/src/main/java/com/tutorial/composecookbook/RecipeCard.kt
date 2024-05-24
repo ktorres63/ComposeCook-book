@@ -72,5 +72,5 @@ fun RecipeCard(recipe: Recipe) {
 @Composable
 @Preview(showBackground = true)
 fun RecipeCardPreview() {
-    RecipeCard(defaultRecipes[0])
+    RecipeCard(defaultRecipes[1])
 }

@@ -19,29 +19,22 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ComposeCookbookTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                Cookbook()
+
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun Cookbook() {
+    RecipeList(recipes = defaultRecipes)
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun CookbookPreview() {
     ComposeCookbookTheme {
-        Greeting("Android")
+        Cookbook()
     }
 }

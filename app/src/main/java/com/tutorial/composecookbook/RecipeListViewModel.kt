@@ -46,6 +46,7 @@ class RecipeListViewModel : ViewModel() {
             description = "The healthy version of a milkshake. We’ll have a REAL milkshake later."
         )
     )
+
     //This private property acts as a setter for the recipe list. The corresponding getter for the recipe
     //list is deried from it
     private val _recipeListFlow = MutableStateFlow(recipeList)
@@ -53,4 +54,19 @@ class RecipeListViewModel : ViewModel() {
     //Any composable that wants to access the content of the recipe list and be informed when the list changes
     //will use this public property as a getter
     val recipeListFlow: StateFlow<List<Recipe>> get() = _recipeListFlow
+    fun addPlaceholderRecipe() {
+        recipeList.add(
+            Recipe(
+                imageResource = R.drawable.fork_spoon,
+                title = "Placeholder",
+                ingredients = listOf("Ingredient 1", "Ingredient 2", "Ingredient 3"),
+                description = "Lorem ipsus yummy yum!"
+            )
+        )
+    }
+    fun removeLastRecipe(){
+        if(recipeList.isNotEmpty()){
+            recipeList.remove(recipeList.last())
+        }
+    }
 }
